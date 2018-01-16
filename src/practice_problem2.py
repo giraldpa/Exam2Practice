@@ -2,8 +2,8 @@
 PRACTICE Test 2, practice_problem 2.
 
 Authors: David Mutchler, Dave Fisher, Valerie Galluzzi, Amanda Stouder,
-         their colleagues and PUT_YOUR_NAME_HERE.
-"""  # TODO: 1. PUT YOUR NAME IN THE ABOVE LINE.
+         their colleagues and Pattie GIraldo.
+"""  # DONE: 1. PUT YOUR NAME IN THE ABOVE LINE.
 
 ########################################################################
 # Students:
@@ -28,6 +28,9 @@ Authors: David Mutchler, Dave Fisher, Valerie Galluzzi, Amanda Stouder,
 import simple_testing as st
 
 
+# import time
+# import testing_helper
+
 def main():
     """ Calls the   TEST   functions in this module. """
     run_test_practice_problem2a()
@@ -42,7 +45,7 @@ def main():
 def run_test_practice_problem2a():
     """ Tests the   practice_problem2a  function. """
     # ------------------------------------------------------------------
-    # TODO: 2. Implement this TEST function.
+    # DONE: 2. Implement this TEST function.
     #   It TESTS the  practice_problem2a  function defined below.
     #   Include at least **   4 reasonable   ** tests.
     #
@@ -55,6 +58,29 @@ def run_test_practice_problem2a():
     print('--------------------------------------------------')
     print('Testing the   practice_problem2a   function:')
     print('--------------------------------------------------')
+    # Test 1
+    expected = '[8, 16, 11, -14, 14]'
+    actual = practice_problem2a([2, 10, 5, -20, 8], 6)
+    print('Expected:', expected)
+    print('Actual:  ', actual)
+
+    # Test 2
+    expected = '[9, 15, 10, 1, 7]'
+    actual = practice_problem2a([6, 12, 7, -2, 4], 3)
+    print('Expected:', expected)
+    print('Actual:  ', actual)
+
+    # Test 3
+    expected = '[17, 6, 50, 26, 16]'
+    actual = practice_problem2a([12, 1, 45, 21, 11], 5)
+    print('Expected:', expected)
+    print('Actual:  ', actual)
+
+    # Test 4
+    expected = '[17, 253, 53, -32, 68]'
+    actual = practice_problem2a([7, 243, 43, -42, 58], 10)
+    print('Expected:', expected)
+    print('Actual:  ', actual)
 
 
 def practice_problem2a(sequence, delta):
@@ -76,13 +102,18 @@ def practice_problem2a(sequence, delta):
       :type delta:    int
     """
     ####################################################################
-    # TODO: 3. Implement and test this function.
+    # DONE: 3. Implement and test this function.
     #     The testing code is already written for you (above).
     ####################################################################
     # DIFFICULTY AND TIME RATINGS (see top of this file for explanation)
     #    DIFFICULTY:      5
     #    TIME ESTIMATE:   5 minutes.
     ####################################################################
+    seq = []
+    for k in range(len(sequence)):
+        number = sequence[k] + delta
+        seq = seq + [number]
+    return seq
 
 
 def run_test_practice_problem2b():
@@ -170,16 +201,38 @@ def practice_problem2b(sequence):
       :type sequence [str]
     """
     ####################################################################
-    # TODO: 4. Implement and test this function.
+    # DONE: 4. Implement and test this function.
     #     The testing code is already written for you (above).
     ####################################################################
     # DIFFICULTY AND TIME RATINGS (see top of this file for explanation)
     #    DIFFICULTY:      7
     #    TIME ESTIMATE:   10 minutes.
     ####################################################################
+    new_string = ''
+    for k in range(len(sequence)):
+        string_in_list = sequence[k]
+        if not string_in_list == '':
+            new_string = new_string + string_in_list[0]
+    return new_string
 
 
-# ----------------------------------------------------------------------
-# Calls  main  to start the ball rolling.
-# ----------------------------------------------------------------------
+#
+# # To allow color-coding the output to the console:
+# # noinspection PyShadowingBuiltins
+# print = testing_helper.print_colored
+#
+# # -----------------------------------------------------------------------------
+# # Calls  main  to start the ball rolling.
+# # The   try .. except   prevents error messages on the console from being
+# # intermingled with ordinary output to the console.
+# # -----------------------------------------------------------------------------
+# try:
+#     main()
+# except Exception:
+#     print('ERROR - While running this test,', color='red')
+#     print('your code raised the following exception:', color='red')
+#     print()
+#     time.sleep(1)
+#     raise
+
 main()
